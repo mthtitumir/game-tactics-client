@@ -34,14 +34,17 @@ const DashBoard = () => {
 
                     {
                         !isAdmin && !isInstructor && (<>
-                            <li><NavLink to='selected-courses'>Selected Class</NavLink></li>
-                            <li><NavLink to='enrolled-courses'>Enrolled Class</NavLink></li>
+                            <li><NavLink to='selected-courses'>Selected Courses</NavLink></li>
+                            <li><NavLink to='enrolled-courses'>Enrolled Courses</NavLink></li>
                             <li><NavLink to='pay'>Pay</NavLink></li>
                             <li><NavLink to='payment-history'>Payment History</NavLink></li>
                         </>)
                     }
-
+                    <div className="divider"></div>
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='profile'>Profile</NavLink></li>
                 </ul>
+
 
             </div>
         </div>
