@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import NavBar from '../Shared/Navbar/NavBar';
+import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
 const DashBoard = () => {
-    const isAdmin = true;
-    const isInstructor = false;
+    const [isAdmin] = useAdmin();
+    // console.log(isAdmin);
+    const [isInstructor] = useInstructor();
+    // console.log(isInstructor);
     return (
         <>
-        <NavBar></NavBar>
             <div className="drawer lg:drawer-open container mx-auto mt-20">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col px-10">

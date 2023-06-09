@@ -49,7 +49,7 @@ const Users = () => {
                                     <td>{singleUser.email}</td>
                                     <td>
                                         {
-                                            singleUser.role === 'admin' ? 'admin' : <FaUsers onClick={()=> handleMakeAdmin(singleUser)} className='text-center text-teal-600 mx-auto text-2xl' />
+                                            singleUser.role ? singleUser.role : <FaUsers onClick={()=> handleMakeAdmin(singleUser)} className='text-center text-teal-600 mx-auto text-2xl' />
                                         }
                                     </td>
                                     <th>

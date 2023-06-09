@@ -31,10 +31,6 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/be-an-instructor',
-                element: <BeAnInstructor></BeAnInstructor>
-            },
-            {
                 path: '/all-courses',
                 element: <AllCourses></AllCourses>
             }

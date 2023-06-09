@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
+    const [axiosSecure] = useAxiosSecure();
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -12,6 +14,20 @@ const NavBar = () => {
                     'You logged out successfully!',
                     'success'
                 )
+            })
+    }
+    const handleMakeInstructor = user => {
+        // console.log(user);
+        axiosSecure.patch(`users/instructor/${user.email}`)
+            .then(data => {
+                console.log(data);
+                if (data.data.modifiedCount) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `You, ${user.displayName}, are an Instructor Now!`,
+                    })
+                }
             })
     }
     return (
@@ -27,7 +43,7 @@ const NavBar = () => {
                             <li><a>Services</a></li>
                             <li><a>Blog</a></li>
                             {
-                                user && <li><Link to='be-an-instructor'>Be an Instructor</Link></li>
+                                user && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
                             }
                         </ul>
                     </div>
@@ -42,7 +58,7 @@ const NavBar = () => {
                         <li><a>Services</a></li>
                         <li><a>Blog</a></li>
                         {
-                            user && <li><Link to='be-an-instructor'>Be an Instructor</Link></li>
+                            user && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
                         }
                     </ul>
                 </div>
