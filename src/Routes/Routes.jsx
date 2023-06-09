@@ -11,6 +11,9 @@ import SelectedCourses from "../Pages/DashBoard/StudentDashboard/SelectedCourses
 import EnrolledCourses from "../Pages/DashBoard/StudentDashboard/EnrolledCourses/EnrolledCourses";
 import Pay from "../Pages/DashBoard/StudentDashboard/Pay/Pay";
 import PaymentHistory from "../Pages/DashBoard/StudentDashboard/PaymentHistory/PaymentHistory";
+import InstructorRequests from "../Pages/DashBoard/AdminDashboard/InstructorRequests/InstructorRequests";
+import PendingCourses from "../Pages/DashBoard/AdminDashboard/PendingCourses/PendingCourses";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -29,7 +32,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashBoard></DashBoard>,
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children: [
             {
                 path: 'users',
@@ -38,6 +41,14 @@ export const router = createBrowserRouter([
             {
                 path: 'courses',
                 element: <Courses></Courses>
+            },
+            {
+                path: 'instructor-requests',
+                element: <InstructorRequests></InstructorRequests>
+            },
+            {
+                path: 'pending-courses',
+                element: <PendingCourses></PendingCourses>
             },
             {
                 path: 'add-a-course',

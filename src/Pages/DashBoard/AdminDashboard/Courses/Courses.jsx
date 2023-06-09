@@ -5,7 +5,7 @@ const Courses = () => {
     const [courses] = useCourses();
     return (
         <div>
-            All courses here
+            All courses here: {courses.length}
         </div>
     );
 };

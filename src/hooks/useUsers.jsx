@@ -11,7 +11,7 @@ const useUsers = () => {
         enabled: !loading,
         queryFn: async() =>{
             const res = await axiosSecure('/users')
-            console.log(res);
+            // console.log(res);
             return res.data;
         }
     })

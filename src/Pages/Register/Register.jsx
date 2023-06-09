@@ -17,8 +17,8 @@ const Register = () => {
                 const loggedUser = result.user;
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email};
-                        axios.post('http://localhost:5002/users', saveUser)
+                        const savedUser = { name: data.name, email: data.email};
+                        axios.post('http://localhost:5002/users', savedUser)
                             .then(response => {
                                 console.log('Data posted:', response.data);
                                 if (response.data.insertedId) {
