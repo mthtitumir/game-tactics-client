@@ -5,14 +5,14 @@ import useAuth from '../../hooks/useAuth';
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logOut()
-        .then(() =>{
-            Swal.fire(
-                'You logged out successfully!',
-                'success'
-            )
-        })
+            .then(() => {
+                Swal.fire(
+                    'You logged out successfully!',
+                    'success'
+                )
+            })
     }
     return (
         <div className='fixed z-50 top-0 w-full bg-cyan-50 drop-shadow-lg'>
@@ -26,6 +26,9 @@ const NavBar = () => {
                             <li><Link to='/' >Home</Link></li>
                             <li><a>Services</a></li>
                             <li><a>Blog</a></li>
+                            {
+                                user && <li><Link to='be-an-instructor'>Be an Instructor</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className='flex items-center'>
@@ -38,6 +41,9 @@ const NavBar = () => {
                         <li><Link to='/' >Home</Link></li>
                         <li><a>Services</a></li>
                         <li><a>Blog</a></li>
+                        {
+                            user && <li><Link to='be-an-instructor'>Be an Instructor</Link></li>
+                        }
                     </ul>
                 </div>
                 <div className='navbar-end gap-2 items-center'>

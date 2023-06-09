@@ -14,6 +14,8 @@ import PaymentHistory from "../Pages/DashBoard/StudentDashboard/PaymentHistory/P
 import InstructorRequests from "../Pages/DashBoard/AdminDashboard/InstructorRequests/InstructorRequests";
 import PendingCourses from "../Pages/DashBoard/AdminDashboard/PendingCourses/PendingCourses";
 import PrivateRoute from "./PrivateRoute";
+import BeAnInstructor from "../Pages/BeAnInstructor/BeAnInstructor";
+import AllCourses from "../Pages/AllCourses/AllCourses";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: '/be-an-instructor',
+                element: <BeAnInstructor></BeAnInstructor>
+            },
+            {
+                path: '/all-courses',
+                element: <AllCourses></AllCourses>
             }
         ]
     },

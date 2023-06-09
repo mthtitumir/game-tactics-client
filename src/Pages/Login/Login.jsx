@@ -1,14 +1,28 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../componants/SocialLogin/SocialLogin';
 import SecondaryBanner from '../../Shared/SecondaryBanner/SecondaryBanner';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    // const {user} = useAuth();
+    const { user, logIn } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        logIn(data.email, data.password)
+            .then(data => {
+                reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User created successfully.',
+                });
+                navigate(from, { replace: true })
+            })
+    };
     return (
         <div className=''>
             <SecondaryBanner></SecondaryBanner>
