@@ -1,27 +1,24 @@
 import React from 'react';
 import useUsers from '../../../../hooks/useUsers';
 import useAuth from '../../../../hooks/useAuth';
+import DashboardHeader from '../../../../componants/DashboardHeader/DashboardHeader';
+import {  FaUsers } from 'react-icons/fa';
 
 const Users = () => {
     const [users] = useUsers();
     const { user } = useAuth();
     return (
-        <div className='w-full px-20'>
-            <div className="divider"></div>
-            <div className="flex items-center justify-between">
-                <h3 className='text-2xl font-semibold'>All Users</h3>
-                <h3 className='text-2xl font-semibold'>Total Users: {users.length}</h3>
-            </div>
-            <div className="divider"></div>
+        <div className=''>
+            <DashboardHeader heading={"All Users"} />
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className='font-bold'>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Make Admin</th>
+                            <th className='text-center'>Make Admin</th>
                             <th>Make Instructor</th>
                         </tr>
                     </thead>
@@ -29,11 +26,11 @@ const Users = () => {
                         {/* row 1 */}
                         {
                             users.map((singleUser, index) =>
-                                <tr key={singleUser?._id}>
+                                <tr key={singleUser?._id} className='hover'>
                                     <th>{index+1}</th>
-                                    <td className="font-bold">{singleUser.name}</td>
+                                    <td className="">{singleUser.name}</td>
                                     <td>{singleUser.email}</td>
-                                    <td>Purple</td>
+                                    <td><FaUsers className='text-center text-teal-600 mx-auto text-2xl' /></td>
                                     <th>
                                         <button className="btn btn-ghost btn-xs">details</button>
                                     </th>

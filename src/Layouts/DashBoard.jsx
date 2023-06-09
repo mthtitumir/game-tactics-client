@@ -10,10 +10,10 @@ const DashBoard = () => {
         <NavBar></NavBar>
             <div className="drawer lg:drawer-open container mx-auto mt-20">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center">
+                <div className="drawer-content flex flex-col px-10">
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     {/* Page content here */}
-                    <Outlet></Outlet>
+                    <Outlet className=' px-20'></Outlet>
 
                 </div>
                 <div className="drawer-side">

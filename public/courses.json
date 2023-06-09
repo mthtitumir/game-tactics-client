@@ -1,0 +1,163 @@
+[
+    {
+      "id": 1,
+      "name": "Chess Fundamentals",
+      "seat": 25,
+      "ratings": 4.5,
+      "instructor": "John Smith",
+      "price": 29.99
+    },
+    {
+      "id": 2,
+      "name": "Mastering Chess Tactics",
+      "seat": 15,
+      "ratings": 4.2,
+      "instructor": "Emily Johnson",
+      "price": 19.99
+    },
+    {
+      "id": 3,
+      "name": "Advanced Chess Strategies",
+      "seat": 20,
+      "ratings": 4.7,
+      "instructor": "David Brown",
+      "price": 24.99
+    },
+    {
+      "id": 4,
+      "name": "Strategic Thinking Power",
+      "seat": 30,
+      "ratings": 4.6,
+      "instructor": "Sophia Lee",
+      "price": 34.99
+    },
+    {
+      "id": 5,
+      "name": "Improving Decision-Making Skills",
+      "seat": 40,
+      "ratings": 4.4,
+      "instructor": "Michael Davis",
+      "price": 39.99
+    },
+    {
+      "id": 6,
+      "name": "Mind Hacks for Productivity",
+      "seat": 10,
+      "ratings": 4.8,
+      "instructor": "Emma Wilson",
+      "price": 14.99
+    },
+    {
+      "id": 7,
+      "name": "Mastering Critical Thinking",
+      "seat": 25,
+      "ratings": 4.3,
+      "instructor": "Daniel Anderson",
+      "price": 29.99
+    },
+    {
+      "id": 8,
+      "name": "Chess Openings and Strategies",
+      "seat": 15,
+      "ratings": 4.7,
+      "instructor": "Olivia Brown",
+      "price": 19.99
+    },
+    {
+      "id": 9,
+      "name": "Unlocking Your Mind's Potential",
+      "seat": 20,
+      "ratings": 4.5,
+      "instructor": "Liam Johnson",
+      "price": 24.99
+    },
+    {
+      "id": 10,
+      "name": "Chess Endgame Mastery",
+      "seat": 30,
+      "ratings": 4.4,
+      "instructor": "Ava Wilson",
+      "price": 34.99
+    },
+    {
+      "id": 11,
+      "name": "Enhancing Creative Thinking",
+      "seat": 40,
+      "ratings": 4.6,
+      "instructor": "Noah Davis",
+      "price": 39.99
+    },
+    {
+      "id": 12,
+      "name": "Mindfulness for Clear Thinking",
+      "seat": 10,
+      "ratings": 4.9,
+      "instructor": "Isabella Smith",
+      "price": 14.99
+    },
+    {
+      "id": 13,
+      "name": "Advanced Chess Tactics",
+      "seat": 25,
+      "ratings": 4.4,
+      "instructor": "James Wilson",
+      "price": 29.99
+    },
+    {
+      "id": 14,
+      "name": "Strategic Problem Solving",
+      "seat": 15,
+      "ratings": 4.5,
+      "instructor": "Mia Anderson",
+      "price": 19.99
+    },
+    {
+      "id": 15,
+      "name": "Mind Hacks for Stress Management",
+      "seat": 20,
+      "ratings": 4.7,
+      "instructor": "Benjamin Lee",
+      "price": 24.99
+    },
+    {
+      "id": 16,
+      "name": "Chess Tactics Training",
+      "seat": 30,
+      "ratings": 4.6,
+      "instructor": "Charlotte Davis",
+      "price": 34.99
+    },
+    {
+      "id": 17,
+      "name": "Critical Thinking in Problem Solving",
+      "seat": 40,
+      "ratings": 4.2,
+      "instructor": "Ethan Johnson",
+      "price": 39.99
+    },
+    {
+      "id": 18,
+      "name": "Chess Strategy: Planning and Execution",
+      "seat": 10,
+      "ratings": 4.8,
+      "instructor": "Harper Wilson",
+      "price": 14.99
+    },
+    {
+      "id": 19,
+      "name": "Boosting Memory and Cognitive Skills",
+      "seat": 25,
+      "ratings": 4.5,
+      "instructor": "Amelia Smith",
+      "price": 29.99
+    },
+    {
+      "id": 20,
+      "name": "Mind Hacks for Effective Learning",
+      "seat": 15,
+      "ratings": 4.3,
+      "instructor": "Henry Brown",
+      "price": 19.99
+    }
+  ]
+  
