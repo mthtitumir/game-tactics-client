@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
     const [axiosSecure] = useAxiosSecure();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+    console.log(isAdmin);
+    console.log(isInstructor);
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -43,7 +49,7 @@ const NavBar = () => {
                             <li><a>Services</a></li>
                             <li><a>Blog</a></li>
                             {
-                                user && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
+                                user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}>Be an Instructor</li>
                             }
                         </ul>
                     </div>
@@ -58,7 +64,7 @@ const NavBar = () => {
                         <li><a>Services</a></li>
                         <li><a>Blog</a></li>
                         {
-                            user && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
+                            user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
                         }
                     </ul>
                 </div>
