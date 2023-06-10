@@ -5,14 +5,18 @@ import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
+import { FaCartPlus } from 'react-icons/fa';
+import useCart from '../../hooks/useCart';
 
 const NavBar = () => {
     const { user, logOut } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
-    console.log(isAdmin);
-    console.log(isInstructor);
+    const [cart, refetch] = useCart();
+    // console.log(cart);
+    // console.log(isAdmin);
+    // console.log(isInstructor);
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -26,7 +30,7 @@ const NavBar = () => {
         // console.log(user);
         axiosSecure.patch(`users/instructor/${user.email}`)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.data.modifiedCount) {
                     Swal.fire({
                         position: 'top-end',
@@ -46,8 +50,8 @@ const NavBar = () => {
                         </label>
                         <ul tabIndex={0} className="text-gray-600 font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/' >Home</Link></li>
-                            <li><a>Services</a></li>
-                            <li><a>Blog</a></li>
+                            <li><Link to='/all-courses'>Courses</Link></li>
+                            <li><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
                             {
                                 user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}>Be an Instructor</li>
                             }
@@ -61,8 +65,8 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="text-gray-600 font-semibold menu menu-horizontal px-1">
                         <li><Link to='/' >Home</Link></li>
-                        <li><a>Services</a></li>
-                        <li><a>Blog</a></li>
+                        <li><Link to='/all-courses'>Courses</Link></li>
+                        <li><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
                         {
                             user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
                         }
