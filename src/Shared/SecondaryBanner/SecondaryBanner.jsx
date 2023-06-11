@@ -2,7 +2,7 @@ import React from 'react';
 
 const SecondaryBanner = ({title}) => {
     return (
-        <div className='relative mt-20'>
+        <div className='relative'>
             <div>
                 <img className='mx-auto' src="https://i.ibb.co/GPC3GCT/chess.jpg" alt="" />
             </div>

@@ -27,7 +27,6 @@ const NavBar = () => {
             })
     }
     const handleMakeInstructor = user => {
-        // console.log(user);
         axiosSecure.patch(`users/instructor/${user.email}`)
             .then(data => {
                 // console.log(data);
@@ -39,36 +38,38 @@ const NavBar = () => {
                     })
                 }
             })
-    }
+    };
     return (
-        <div className='fixed z-50 top-0 w-full bg-cyan-50 drop-shadow-lg'>
-            <div className=" navbar container mx-auto rounded-lg border">
+        <div className='fixed z-50 top-5 flex justify-center w-full text-center  drop-shadow-lg'>
+            <div className="bg-gray-900 container  navbar mx-auto rounded-lg border">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="text-gray-600 font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to='/' >Home</Link></li>
-                            <li><Link to='/all-courses'>Courses</Link></li>
-                            <li><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
+                        <ul tabIndex={0} className=" font-semibold menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li className='text-white hover:text-orange-500'><Link to='/' >Home</Link></li>
+                            <li className='text-white hover:text-orange-500'><Link to='/instructors' >Instructors</Link></li>
+                            <li className='text-white hover:text-orange-500'><Link to='/all-courses'>Courses</Link></li>
+                            <li className='text-white hover:text-orange-500'><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
                             {
-                                user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}>Be an Instructor</li>
+                                user && !isAdmin && !isInstructor && <li className='text-white hover:text-orange-500' onClick={() => handleMakeInstructor(user)}>Be an Instructor</li>
                             }
                         </ul>
                     </div>
                     <div className='flex items-center'>
                         <img className='w-10' src='' alt="" />
-                        <Link to='/' className="font-bold normal-case text-xl"><span className='text-red-600'>Cardio</span><span className='text-cyan-600'>Care</span></Link>
+                        <Link to='/' className="font-bold normal-case text-xl"><span className='text-red-600'>Game</span><span className='text-cyan-600'>Tactics</span></Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="text-gray-600 font-semibold menu menu-horizontal px-1">
-                        <li><Link to='/' >Home</Link></li>
-                        <li><Link to='/all-courses'>Courses</Link></li>
-                        <li><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
+                    <ul className="font-semibold menu menu-horizontal px-1">
+                        <li className='text-cyan-500 hover:text-white'><Link to='/' >Home</Link></li>
+                        <li className='text-cyan-500 hover:text-white'><Link to='/instructors' >Instructors</Link></li>
+                        <li className='text-white hover:text-orange-500'><Link to='/all-courses'>Courses</Link></li>
+                        <li className='text-white hover:text-orange-500'><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li>
                         {
-                            user && !isAdmin && !isInstructor && <li onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
+                            user && !isAdmin && !isInstructor && <li className='text-white hover:text-orange-500' onClick={() => handleMakeInstructor(user)}><Link to=''>Be an Instructor</Link></li>
                         }
                     </ul>
                 </div>
@@ -82,7 +83,7 @@ const NavBar = () => {
                                         <img src={user.photoURL} />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <ul tabIndex={0} className="mt-3 p-2 bg-slate-600 text-white shadow menu menu-sm dropdown-content rounded-box w-52">
                                     <li><Link>Profile</Link></li>
                                     <li><a>Settings</a></li>
                                     <li onClick={handleLogout}><Link>Logout</Link></li>

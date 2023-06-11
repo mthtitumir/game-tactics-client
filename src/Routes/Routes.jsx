@@ -16,12 +16,18 @@ import PendingCourses from "../Pages/DashBoard/AdminDashboard/PendingCourses/Pen
 import PrivateRoute from "./PrivateRoute";
 import BeAnInstructor from "../Pages/BeAnInstructor/BeAnInstructor";
 import AllCourses from "../Pages/AllCourses/AllCourses";
+import Home from "../Pages/Home/Home/Home";
+import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
             {
                 path: "/login",
                 element: <Login></Login>
@@ -33,7 +39,11 @@ export const router = createBrowserRouter([
             {
                 path: '/all-courses',
                 element: <AllCourses></AllCourses>
-            }
+            },
+            {
+                path: '/instructors',
+                element: <AllInstructors></AllInstructors>
+            },
         ]
     },
     {
