@@ -13,7 +13,7 @@ const SingleCourseCard = ({ course }) => {
     const handleSelectCard = courseItem => {
         const { _id, name, instructor, image, price } = courseItem;
         if (user && user.email) {
-            const cartItem = { classId: _id, instructor, image, name, price, email: user.email }
+            const cartItem = { classId: _id, instructor, image, name, price, email: user.email, paymentStatus: 'unpaid' }
             // console.log(cartItem);
             axiosSecure.post('/carts', cartItem)
                 .then(data => {

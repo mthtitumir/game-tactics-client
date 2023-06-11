@@ -8,6 +8,10 @@ import { Link } from 'react-router-dom';
 const SelectedCourses = () => {
     const [cart, refetch] = useCart();
     const [axiosSecure] = useAxiosSecure();
+    const selectedCourses = cart.filter(selectedCourse => selectedCourse.paymentStatus === 'unpaid');
+    console.log(selectedCourses);
+    // console.log(cart);
+    
     const handleDelete = item => {
         Swal.fire({
             title: 'Are you sure?',
@@ -50,7 +54,7 @@ const SelectedCourses = () => {
                     </thead>
                     <tbody>
                         {
-                            cart.map((cartItem, index) => <tr key={cartItem._id} className=" hover">
+                            selectedCourses.map((cartItem, index) => <tr key={cartItem._id} className=" hover">
                                 <th>{index + 1}</th>
                                 <td>{cartItem.name}</td>
                                 <td><button onClick={() => { handleDelete(cartItem) }} className='bg-orange-500 hover:bg-orange-600 px-2 py-1 text-white rounded-md font-semibold uppercase'>Delete</button></td>

@@ -8,18 +8,21 @@ import useCart from '../../../../hooks/useCart';
 // provide pk
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Pay = () => {
-    const {id} = useParams();
     const [cart] = useCart();
-    const payItem = cart.find(item=> item._id === id);
-    const {price} = payItem;
-    // console.log(price);
+    const { id } = useParams();
+    // console.log(cart);
+    const payItem = cart?.find(item => id === item._id) || {};
+    const { _id, price } = payItem;
+    console.log(payItem);
     // console.log(id);
     return (
         <div>
             <DashboardHeader heading={"Payment Now"} />
-            <Elements stripe={stripePromise}>
-                <CheckoutForm price = {price}/>
-            </Elements>
+            {
+                price && <Elements stripe={stripePromise}>
+                    <CheckoutForm _id={_id} price={price} />
+                </Elements>
+            }
         </div>
     );
 };
