@@ -65,8 +65,8 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="font-semibold menu menu-horizontal px-1">
-                        <li className='text-cyan-500 hover:text-white'><Link to='/' >Home</Link></li>
-                        <li className='text-cyan-500 hover:text-white'><Link to='/instructors' >Instructors</Link></li>
+                        <li className='text-white hover:text-white'><Link to='/' >Home</Link></li>
+                        <li className='text-white hover:text-white'><Link to='/instructors' >Instructors</Link></li>
                         <li className='text-white hover:text-orange-500'><Link to='/all-courses'>Courses</Link></li>
                         <li className='text-white hover:text-orange-500'><Link to='/dashboard'>Dashboard</Link></li>
                         {/* <li className='text-white hover:text-orange-500'><Link to='/dashboard/selected-courses'><FaCartPlus className='text-lg' /><sup><div className="badge bg-red-600 text-white">{cart.length}</div></sup></Link></li> */}
@@ -92,7 +92,7 @@ const NavBar = () => {
                                 </ul>
                             </div>
                             :
-                            <Link to='/login'>Login</Link>
+                            <Link className='text-white pr-5' to='/login'>Login</Link>
                     }
                 </div>
             </div>

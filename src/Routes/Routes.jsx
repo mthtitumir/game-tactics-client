@@ -18,11 +18,13 @@ import BeAnInstructor from "../Pages/BeAnInstructor/BeAnInstructor";
 import AllCourses from "../Pages/AllCourses/AllCourses";
 import Home from "../Pages/Home/Home/Home";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
+import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage />,
         children: [
             {
                 path: '/',
@@ -49,6 +51,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+        errorElement:<ErrorPage />,
         children: [
             {
                 path: 'users',

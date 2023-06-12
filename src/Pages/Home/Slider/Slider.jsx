@@ -9,7 +9,7 @@ import BannerDiv from '../../../componants/BannerDiv/BannerDiv';
 
 const Slider = () => {
     return (
-        <Carousel showArrows={false} transitionTime={200} stopOnHover={true} showIndicators={true} infiniteLoop={true} autoPlay={true} showThumbs={false}>
+        <Carousel showArrows={false} transitionTime={1000} stopOnHover={true} showIndicators={true} infiniteLoop={true} autoPlay={true} showThumbs={false}>
             <div className='relative w-full '>
                <img className='w-full min-h-screen object-cover' src={slider1} />
                 <BannerDiv></BannerDiv>
