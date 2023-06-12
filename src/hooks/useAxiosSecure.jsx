@@ -4,7 +4,7 @@ import useAuth from './useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5002',
+    baseURL: 'https://game-tactics-server.vercel.app',
 })
 const useAxiosSecure = () => {
     const { logOut } = useAuth();

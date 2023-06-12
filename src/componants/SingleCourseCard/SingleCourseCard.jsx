@@ -43,9 +43,9 @@ const SingleCourseCard = ({ course }) => {
         <figure><img className='rounded-lg' src={classImage} alt="" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{className}</h2>
-                <h2 className="font-semibold">Instructor: {instructorName}</h2>
+                <h2 className="font-semibold text-cyan-900">Instructor: {instructorName}</h2>
                 <div className='flex justify-between font-semibold'>
-                    <p>Price: {price}</p>
+                    <p>Price: ${price}</p>
                     <p>Available Seats: {availableSeats}</p>
                 </div>
                 <div className="card-actions justify-end">

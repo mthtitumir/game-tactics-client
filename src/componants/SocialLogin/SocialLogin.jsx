@@ -14,7 +14,7 @@ const SocialLogin = () => {
             .then((result) => {
                 const loggedUser = result.user;
                 const saveUser = { name: loggedUser.displayName, email: loggedUser.email};
-                axios.post('http://localhost:5002/users', saveUser)
+                axios.post('https://game-tactics-server.vercel.app/users', saveUser)
                     .then(response => {
                         navigate(from, { replace: true });
                     })

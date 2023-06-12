@@ -10,7 +10,7 @@ const DashBoard = () => {
     const [isAdmin] = useAdmin();
     // console.log(isAdmin);
     const [isInstructor] = useInstructor();
-    // console.log(isInstructor);
+    console.log(isInstructor);
     return (
         <>
             <div className="drawer lg:drawer-open container mx-auto mt-20">

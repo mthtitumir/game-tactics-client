@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser);
             // set jwt token 
             if (currentUser) {
-                axios.post('http://localhost:5002/jwt', {
+                axios.post('https://game-tactics-server.vercel.app/jwt', {
                     email: currentUser.email,
                 }).then(data => {
                     localStorage.setItem('access-token', data.data.token)

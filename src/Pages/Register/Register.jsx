@@ -18,7 +18,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
                         const savedUser = { name: data.name, email: data.email, photo: data.photo};
-                        axios.post('http://localhost:5002/users', savedUser)
+                        axios.post('https://game-tactics-server.vercel.app/users', savedUser)
                             .then(response => {
                                 console.log('Data posted:', response.data);
                                 if (response.data.insertedId) {
