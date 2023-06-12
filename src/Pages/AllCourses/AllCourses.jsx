@@ -1,7 +1,7 @@
 import React from 'react';
 import SecondaryBanner from '../../Shared/SecondaryBanner/SecondaryBanner';
 import useCourses from '../../hooks/useCourses';
-import SingleCourseCard from './SingleCourseCard';
+import SingleCourseCard from '../../componants/SingleCourseCard/SingleCourseCard';
 
 const AllCourses = () => {
     const [courses] = useCourses();

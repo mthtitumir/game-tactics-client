@@ -3,6 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 import NavBar from '../Shared/Navbar/NavBar';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
+import { FaChalkboardTeacher, FaHome, FaUsers } from 'react-icons/fa';
+import { RiMedal2Line } from 'react-icons/ri';
 
 const DashBoard = () => {
     const [isAdmin] = useAdmin();
@@ -28,8 +30,8 @@ const DashBoard = () => {
                         {/* Sidebar content here */}
                         {
                             isAdmin && (<>
-                                <li><NavLink to='users'>All Users</NavLink></li>
-                                <li><NavLink to='courses'>All Courses</NavLink></li>
+                                <li><NavLink to='users'>All Users <FaUsers /></NavLink></li>
+                                <li><NavLink to='courses'>All Courses <RiMedal2Line/></NavLink></li>
                                 <li><NavLink to='instructor-requests'>Instructor Requests</NavLink></li>
                                 <li><NavLink to='pending-courses'>Pending Courses</NavLink></li>
                             </>)
@@ -52,7 +54,7 @@ const DashBoard = () => {
                             </>)
                         }
                         <div className="divider"></div>
-                        <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/'>Home <FaHome /></NavLink></li>
                         <li><NavLink to='profile'>Profile</NavLink></li>
                     </ul>
 

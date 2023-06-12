@@ -5,9 +5,9 @@ import Swal from 'sweetalert2';
 import useCart from '../../hooks/useCart';
 
 const SingleCourseCard = ({ course }) => {
-    // const { _id, name, instructor, image, price, ratings, seat } = course;
+    const { _id, className, instructorName, classImage, price, availableSeats } = course;
     const [cart, refetch] = useCart();
-    // console.log(course);
+    console.log(course);
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const handleSelectCard = courseItem => {
@@ -40,13 +40,16 @@ const SingleCourseCard = ({ course }) => {
 
     return (
         <div className="flex flex-col rounded-lg w-full bg-base-100 drop-shadow-lg hover:shadow-xl">
-        <figure><img className='rounded-lg' src={course.classImage} alt="" /></figure>
+        <figure><img className='rounded-lg' src={classImage} alt="" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{course.className}</h2>
-                <h2 className="card-title">{course.price}</h2>
-                <p></p>
+                <h2 className="card-title">{className}</h2>
+                <h2 className="font-semibold">Instructor: {instructorName}</h2>
+                <div className='flex justify-between font-semibold'>
+                    <p>Price: {price}</p>
+                    <p>Available Seats: {availableSeats}</p>
+                </div>
                 <div className="card-actions justify-end">
-                    <button onClick={() => { handleSelectCard(course) }} className="btn btn-primary">Select</button>
+                    <button onClick={() => { handleSelectCard(course) }} className="px-3 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded uppercase">Select</button>
                 </div>
             </div>
         </div>
