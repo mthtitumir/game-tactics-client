@@ -54,9 +54,9 @@ const SelectedCourses = () => {
                     </thead>
                     <tbody>
                         {
-                            selectedCourses.map((cartItem, index) => <tr key={cartItem._id} className=" hover">
+                            selectedCourses.map((cartItem, index) => <tr key={cartItem._id} className="hover">
                                 <th>{index + 1}</th>
-                                <td>{cartItem.name}</td>
+                                <td>{cartItem.className}</td>
                                 <td><button onClick={() => { handleDelete(cartItem) }} className='bg-orange-500 hover:bg-orange-600 px-2 py-1 text-white rounded-md font-semibold uppercase'>Delete</button></td>
                                 <td className='font-semibold'>${cartItem.price}</td>
                                 <td><Link to={`/dashboard/pay/${cartItem._id}`}><button className='bg-teal-500 hover:bg-teal-600 px-2 py-1 text-white rounded-md font-semibold uppercase'>Pay</button></Link></td>

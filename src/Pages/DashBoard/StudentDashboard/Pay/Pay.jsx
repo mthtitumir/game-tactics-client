@@ -12,7 +12,7 @@ const Pay = () => {
     const { id } = useParams();
     // console.log(cart);
     const payItem = cart?.find(item => id === item._id) || {};
-    const { _id, price } = payItem;
+    const { _id, classId, price } = payItem;
     console.log(payItem);
     // console.log(id);
     return (
@@ -20,7 +20,7 @@ const Pay = () => {
             <DashboardHeader heading={"Payment Now"} />
             {
                 price && <Elements stripe={stripePromise}>
-                    <CheckoutForm _id={_id} price={price} />
+                    <CheckoutForm _id={_id} classId={classId} price={price} />
                 </Elements>
             }
         </div>

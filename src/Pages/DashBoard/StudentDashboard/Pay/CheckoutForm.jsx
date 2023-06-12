@@ -5,7 +5,7 @@ import useAuth from '../../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 // import './CheckoutForm.css';
 
-const CheckoutForm = ({ _id, price }) => {
+const CheckoutForm = ({ _id, classId, price }) => {
     const { user } = useAuth();
     const stripe = useStripe();
     const elements = useElements();
@@ -63,12 +63,12 @@ const CheckoutForm = ({ _id, price }) => {
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
             //save payment information to the server
-            const payment = { email: user?.email, _id,  transactionId: paymentIntent.id, price:parseFloat(price), date: new Date() };
+            const payment = { email: user?.email, _id, classId,  transactionId: paymentIntent.id, price:parseFloat(price), date: new Date() };
             console.log(payment);
             axiosSecure.post('/payments', payment)
             .then(res =>{
                 console.log(res.data.insertResult, res.data.updateResult);
-                if(res.data.insertResult.insertedId && res.data.updateResult.modifiedCount>0){
+                if(res.data.insertResult.insertedId && res.data.updateResult.modifiedCount>0 && res.data.courseUpdateResult.modifiedCount>0){
                     Swal.fire(
                         'Paid!',
                         'You made a successful payment.',

@@ -7,9 +7,9 @@ const AllCourses = () => {
     const [courses] = useCourses();
     // console.log(courses);
     return (
-        <div className='container mx-auto'>
+        <div className=''>
             <SecondaryBanner title={"All Courses"}></SecondaryBanner>
-            <div className='mt-6 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
+            <div className='mt-6 container mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
                 {
                     courses.map(course => <SingleCourseCard key={course._id} course={course} />)
                 }

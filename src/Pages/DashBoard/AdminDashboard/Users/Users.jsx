@@ -2,7 +2,7 @@ import React from 'react';
 import useUsers from '../../../../hooks/useUsers';
 import useAuth from '../../../../hooks/useAuth';
 import DashboardHeader from '../../../../componants/DashboardHeader/DashboardHeader';
-import {  FaUsers } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
@@ -10,19 +10,33 @@ const Users = () => {
     const [axiosSecure] = useAxiosSecure();
     const [users, refetch] = useUsers();
     const { user } = useAuth();
-    const handleMakeAdmin = singleUser =>{
+    const handleMakeAdmin = singleUser => {
         axiosSecure.patch(`users/admin/${singleUser._id}`)
-        .then(data =>{
-            console.log(data);
-            if(data.data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${singleUser.name} is an Admin Now!`, 
-                  })
-            }
-        })
+            .then(data => {
+                console.log(data);
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${singleUser.name} is an Admin Now!`,
+                    })
+                }
+            })
+    }
+    const handleMakeInstructor = singleUser => {
+        axiosSecure.patch(`users/instructor/${singleUser._id}`)
+            .then(data => {
+                console.log(data);
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `You made ${singleUser?.name} an Instructor!`,
+                    })
+                }
+            })
     }
     return (
         <div className=''>
@@ -44,17 +58,20 @@ const Users = () => {
                         {
                             users.map((singleUser, index) =>
                                 <tr key={singleUser?._id} className='hover'>
-                                    <th>{index+1}</th>
-                                    <td className="">{singleUser.name}</td>
+                                    <th>{index + 1}</th>
+                                    <td className="">{singleUser?.name}</td>
                                     <td>{singleUser.email}</td>
                                     <td>
                                         {
-                                            singleUser.role ? singleUser.role : <FaUsers title='Make Admin' onClick={()=> handleMakeAdmin(singleUser)} className='text-center text-teal-600 mx-auto text-2xl' />
+                                            singleUser.role ? singleUser.role : <FaUsers title='Make Admin' onClick={() => handleMakeAdmin(singleUser)} className='text-center text-teal-600 mx-auto text-2xl' />
                                         }
                                     </td>
-                                    <th>
-                                        <button className="btn btn-ghost btn-xs">details</button>
-                                    </th>
+                                    <td>
+                                        {
+                                            singleUser.role ? singleUser.role : <FaUsers title='Make Instructor' onClick={() => handleMakeInstructor(singleUser)} className='text-center text-teal-600 mx-auto text-2xl' />
+                                        }
+                                    </td>
+
                                 </tr>)
                         }
                     </tbody>

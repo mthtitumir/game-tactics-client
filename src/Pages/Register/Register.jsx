@@ -22,6 +22,7 @@ const Register = () => {
                             .then(response => {
                                 console.log('Data posted:', response.data);
                                 if (response.data.insertedId) {
+                                    reset();
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'User created successfully.',

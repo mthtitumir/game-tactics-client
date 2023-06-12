@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../../hooks/useAuth';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const AddACourse = ({ displayName, email }) => {
     const { register, handleSubmit, reset } = useForm();
@@ -12,14 +13,14 @@ const AddACourse = ({ displayName, email }) => {
         const {className, classImage, price, availableSeats, details, instructorEmail, instructorName } = data;
 
         console.log(data);
-        const newItem = {className, classImage, price, availableSeats, details, instructorEmail, instructorName, status: 'pending'}
+        const newItem = {className, classImage, price, availableSeats, details, instructorEmail, instructorName, status: 'pending', enrolled: 0 }
         axiosSecure.post('/courses', newItem)
         .then(data =>{
             if(data.data.insertedId){
                 reset();
                 Swal.fire({
                     icon: 'success',
-                    title: 'Courses added successfully', 
+                    title: 'Course added, wait for approval!', 
                   })
             }
         })

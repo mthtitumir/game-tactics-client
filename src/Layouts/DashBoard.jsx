@@ -16,6 +16,9 @@ const DashBoard = () => {
                 <div className="drawer-content flex flex-col px-10">
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     {/* Page content here */}
+                    {/* <div className='flex justify-center items-center min-h-screen'>
+                        <h3 className='text-3xl font-semibold text-red-700'>Welcome Back!</h3>
+                    </div> */}
                     <Outlet className=' px-20'></Outlet>
 
                 </div>
